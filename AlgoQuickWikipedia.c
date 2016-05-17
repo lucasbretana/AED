@@ -3,6 +3,25 @@
 #include <time.h>
 #define TAM 6
 
+void quick(int vet[], int esq, int dir);
+void escreve(int *vet, int ini, int end);
+
+int main(){
+    srand(time(NULL));
+    int vet[] = {4,1,2,3,5,0};
+
+    // for(i=0;i<TAM;i++)
+    //     vet[i] = rand() % TAM;
+
+    escreve(vet, 0, TAM-1);
+    quick(vet,0,TAM-1);
+
+    printf("\nPRONTO ");
+    escreve(vet, 0, TAM-1);
+    printf("\n");
+    return 0;
+}
+
 void escreve(int *vet, int ini, int end){
   int i;
   for(i=ini;i<=end;i++){
@@ -20,8 +39,7 @@ void quick(int vet[], int esq, int dir){
          while(j > pivo){
             vet[j] = vet[j-1];
             j--;
-            // printf("LOOP\n");
-            // escreve(vet, esq, dir);
+
          }
          vet[j] = ch;
          pivo++;
@@ -36,19 +54,3 @@ void quick(int vet[], int esq, int dir){
         quick(vet,pivo+1,dir);
     }
  }
-
-int main(){
-    srand(time(NULL));
-    int vet[] = {4,1,2,3,5,0},i;
-
-    // for(i=0;i<TAM;i++)
-    //     vet[i] = rand() % TAM;
-
-    escreve(vet, 0, TAM-1);
-    quick(vet,0,TAM-1);
-
-    for(i=0;i<TAM;i++)
-        printf("%d ",vet[i]);
-    printf("\n");
-    return 0;
-}

@@ -1,0 +1,13 @@
+# comment
+  - item
+    * subitem
+    * = notes
+--------------------------------------------------------------------------------
+# Notes to use the GDB
+  - I recommend the use of cgdb
+
+# Commands
+  - c : "continues, goes to the next breakpoint"
+  - s : "step, goes inside the functions"
+  - break N : "N is the number of the line where to creates the breakpoint"
+  -
