@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define TAM 6
+#define TAM 4
 
 void quick(int vet[], int esq, int dir);
 void escreve(int *vet, int ini, int end);
 
 int main(){
     srand(time(NULL));
-    int vet[] = {4,1,2,3,5,0};
+    int vet[] = {1,3,4,2};
 
     // for(i=0;i<TAM;i++)
     //     vet[i] = rand() % TAM;
@@ -30,6 +30,9 @@ void escreve(int *vet, int ini, int end){
   printf("\n");
 }
 
+/*
+  DONE, by myself and review
+*/
 void quick(int vet[], int esq, int dir){
     int pivo = esq,i,ch,j;
     for(i=esq+1;i<=dir;i++){
@@ -39,7 +42,6 @@ void quick(int vet[], int esq, int dir){
          while(j > pivo){
             vet[j] = vet[j-1];
             j--;
-
          }
          vet[j] = ch;
          pivo++;
