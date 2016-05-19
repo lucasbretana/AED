@@ -15,7 +15,7 @@ int main(){
 	quick(vetor,0,tamanho-1);
 	printf("Vetor ordenado:\n");
 	imprime(tamanho,vetor);
-	
+	return 0;
 }
 void imprime(int tamanho,int *vetor){
 	int i;
@@ -27,32 +27,51 @@ void imprime(int tamanho,int *vetor){
 void preenche(int tamanho,int *vetor){
 	 int i;
 	 srand(time(NULL));
-     for (i = 0; i < 100; i++)
-     {
-        vetor[i]=rand() % 10000;
-     }
+   for (i = 0; i < 100; i++)
+   {
+      vetor[i]=rand() % 10000;
+   }
 }
 
 void quick(int *vet, int esq, int dir){
     int pivo;
     pivo=complementoquick(vet,esq,dir);
     if(pivo-1 > esq && pivo>0){
-	/*(&&pivo>0) foi colocado ali para que o programa possa rodar mesmo sem que a função complementoquick estivesse sido
-	 implementada, não interfere em nada na execução do programa, já que o vetor só vai assumir valores positivos
+	/*(&&pivo>0) foi colocado ali para que o programa possa rodar mesmo sem que a funï¿½ï¿½o complementoquick estivesse sido
+	 implementada, nï¿½o interfere em nada na execuï¿½ï¿½o do programa, jï¿½ que o vetor sï¿½ vai assumir valores positivos
 	 */
     	 quick(vet,esq,pivo-1);
-	
+
     }
     if(pivo+1 < dir && pivo>0){
-    /*(&&pivo>0) foi colocado ali para que o programa possa rodar mesmo sem que a função complementoquick estivesse sido 
-	implementada, não interfere em nada na execução do programa, já que o vetor só vai assumir valores positivos
+    /*(&&pivo>0) foi colocado ali para que o programa possa rodar mesmo sem que a funï¿½ï¿½o complementoquick estivesse sido
+	implementada, nï¿½o interfere em nada na execuï¿½ï¿½o do programa, jï¿½ que o vetor sï¿½ vai assumir valores positivos
 	 */
         quick(vet,pivo+1,dir);
     }
  }
 int complementoquick(int *vet, int esq, int dir){
-    return -10;
-	/*-10 não pertence a função de ordenação, está ali apenas para que o programa possa rodar sem que a função
-	complementoquick estiver devidamente construida, este return deve retornar o valor do pivo da função quick
+	//pick a pivot
+	int pivot = esq;
+	int i = esq, aux; // i usado para percorrer o vetor, aux e usado para trocar os elementos
+	int j; // usado para percorrer os elementos na hora de reordernar
+	while( i<=dir ){
+		if(vet[pivot] > vet[i]){
+			// fazer rearranjo e troca
+			aux = vet[i];
+			j = i;
+			while( j > pivot ){ // loop descendente ate pivot
+				vet[j] = vet[j-1];
+				j--;
+			}
+			vet[j] = aux;
+			pivot++;
+		}
+		i++;
+	}
+
+  return pivot;
+	/*-10 nï¿½o pertence a funï¿½ï¿½o de ordenaï¿½ï¿½o, estï¿½ ali apenas para que o programa possa rodar sem que a funï¿½ï¿½o
+	complementoquick estiver devidamente construida, este return deve retornar o valor do pivo da funï¿½ï¿½o quick
 	*/
 }

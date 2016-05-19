@@ -3,23 +3,25 @@
 #include <string.h>
 #include <time.h>
 #include<math.h>
-void imprime(int tamanho,int *vetor);
+#define TAM 10
+void imprime(int comeco, int tamanho,int *vetor);
 void preenche(int tamanho,int *vetor);
 void mergeSort(int *V, int inicio, int fim);
 void merge (int *V, int inicio, int meio, int fim);
 int main(){
-	int vetor[100],tamanho=100;
+	int vetor[TAM],tamanho=TAM;
 	preenche(tamanho,vetor);
 	printf("Vetor sem ordenar:\n");
-	imprime(tamanho,vetor);
-	mergeSort(vetor,0,tamanho);
+	imprime(0, tamanho-1,vetor);
+	mergeSort(vetor,0,tamanho-1);
 	printf("Vetor ordenado:\n");
-	imprime(tamanho,vetor);
-
+	imprime(0, tamanho-1,vetor);
+	return 0;
 }
-void imprime(int tamanho,int *vetor){
+void imprime(int comeco, int tamanho,int *vetor){
 	int i;
-	for(i=0;i<tamanho-1;i++){
+	printf("IMPRIMINDO\n");
+	for(i=comeco;i<tamanho;i++){
 		printf("%d-",vetor[i]);
 	}
 	printf("%d\n\n\n",vetor[i]);
@@ -27,9 +29,9 @@ void imprime(int tamanho,int *vetor){
 void preenche(int tamanho,int *vetor){
 	 int i;
 	 srand(time(NULL));
-     for (i = 0; i < 100; i++)
+     for (i = 0; i < TAM; i++)
      {
-        vetor[i]=rand() % 10000;
+        vetor[i]=rand() % TAM;
      }
 }
 void mergeSort(int *V, int inicio, int fim){
@@ -39,8 +41,19 @@ void mergeSort(int *V, int inicio, int fim){
 		mergeSort(V,inicio,meio);
 		mergeSort(V,meio+1,fim);
 		merge(V,inicio,meio,fim);
+		imprime(inicio, fim, V);
 	}
 }
 void merge (int *V, int inicio, int meio, int fim){
-
+	//testar se o do fim eh menor que os outros
+	int i = fim, aux;
+	while(i>inicio){
+		if(V[i] < V[i-1]){
+			aux = V[i-1];
+			V[i-1] = V[i];
+			V[i] = aux;
+			break;
+		}
+		i--;
+	}
 }

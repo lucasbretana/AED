@@ -1,11 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define TAM 10
 
 void quickSort(int *vet, int left, int dir);
+void PrintVet(int *v, int i, int f);
+
 
 int main(int argc, char const *argv[]) {
-  int vet[] = {4,1,2,3,5,6,0};
+  srand(time(NULL));
+  int n = TAM;
+  if(argc > 1) n = atoi(argv[1]);
+  // int i, *vet;
+  // vet = (int*) malloc(sizeof(int) * n);
+  // for(i=0;i<n;i++)
+  //   vet[i] = rand() % n;
+  int vet[] = {3,0,1,8,7,2,5,4,9,6};
 
-	quickSort(vet, 0, 7);
+  PrintVet(vet, 0, n);
+  quickSort(vet, 0, n);
+  printf("PRONTO\n");
+  PrintVet(vet, 0, n);
 
   return 0;
 }
@@ -17,13 +32,14 @@ int main(int argc, char const *argv[]) {
   A recursao para cada uma desses vetores
 */
 void quickSort(int *vet, int left, int right){
-  if(left == right) return; // parada da recursão
-  // int pivo = (left + right) / 2;
-  int pivo = left;
-  int i;
-  for(i=right;i>left+1;i--){
-    if(){
+  if(left == right) return; // stop condition
+  //pick a pivot
+  int pivot = left;
+}
 
-    }
-  }
+void PrintVet(int *v, int i, int f){
+  int l;
+  for( l=i ; l<f; l++)
+    printf("->[%d]%d ", l, v[l]);
+  printf("\n");
 }

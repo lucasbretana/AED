@@ -1,4 +1,4 @@
-- The inserion_sort.pdf
+## The inserion_sort.pdf
   - using the inserion_sort.c file as base
   - and from the zero {DONE}
 Ordena "in-place", vai lendo um valor do vetor, compara com os anteriores do vetor e se preciso vai trocando com eles.
@@ -6,17 +6,17 @@ De modo que se o vetor é {2,1}, faz:
  1: le o 2
  2: le o 1 e compara com 2, já que é menor, troca
 
-- The selection_sort.pdf
+## The selection_sort.pdf
   - using the selection_sort.c file as base
   - and from the zero {DONE}
 Ordena "in-place", varre o vetor procurando o menor e colocar em V[0].
 Depois procurar o menor de novo e colocar em V[1].
 .....
 
-- The merge_sortM2.pdf task
+## The merge_sortM2.pdf task
   - using the merge_m2.c file as base
   - and from the zero
 
-- Re-do the quick_M1.pdf task
+## The quick_M1.pdf task
   - using the quick_m1.c file as base
   - and from the zero

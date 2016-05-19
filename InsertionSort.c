@@ -16,7 +16,7 @@ int main(int argc, char *argv[]){
   int n = TAM;
   if(argc > 1) n = atoi(argv[1]);
   int i, *vet;
-  vet = malloc(sizeof(int) * n);
+  vet =(int*) malloc(sizeof(int) * n);
   for(i=0;i<n;i++)
     vet[i] = rand() % n;
 

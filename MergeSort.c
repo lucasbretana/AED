@@ -16,7 +16,7 @@ int main(int argc, char *argv[]){
   int n = TAM;
   if(argc > 1) n = atoi(argv[1]);
   int i, *vet;
-  vet = malloc(sizeof(int) * n);
+  vet = (int*) malloc(sizeof(int) * n);
   for(i=0;i<n;i++)
     vet[i] = rand() % n;
 
@@ -27,7 +27,15 @@ int main(int argc, char *argv[]){
 }
 
 void MergeSort(int *vet, int ini, int fim){
-  
+  int mid = (ini + fim)/2; // pega o do meio
+  if(ini != fim){
+    MergeSort(vet, ini, mid);
+    MergeSort(vet, mid+1, fim);
+  }
+  i = fim;
+  while((vet[i]>vet[fim]) && (i>=ini)){
+    
+  }
 }
 
 void PrintVet(int *v, int i, int f){

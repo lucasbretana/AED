@@ -16,7 +16,7 @@ int main(int argc, char *argv[]){
   int n = TAM;
   if(argc > 1) n = atoi(argv[1]);
   int i, *vet;
-  vet = malloc(sizeof(int) * n);
+  vet = (int*) malloc(sizeof(int) * n);
   for(i=0;i<n;i++)
     vet[i] = rand() % n;
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
 
 void SelectionSort(int *vet, int ini, int fim){
   int i, j, small, small_ind;
-  for( i=ini ; i<fim ; i++){ // 
+  for( i=ini ; i<fim ; i++){ //
     small = vet[i];
     small_ind = i;
     for( j=i ; j<fim ; j++ ){
@@ -41,7 +41,7 @@ void SelectionSort(int *vet, int ini, int fim){
       }
     }
     vet[small_ind] = vet[i];
-    vet[i] = small
+    vet[i] = small;
     PrintVet(vet, ini, fim);
   }
 }
