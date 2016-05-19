@@ -27,14 +27,14 @@ int main(int argc, char *argv[]){
 }
 
 void MergeSort(int *vet, int ini, int fim){
-  int mid = (ini + fim)/2; // pega o do meio
+  int mid = (ini + fim)/2, i; // pega o do meio
   if(ini != fim){
     MergeSort(vet, ini, mid);
     MergeSort(vet, mid+1, fim);
   }
   i = fim;
   while((vet[i]>vet[fim]) && (i>=ini)){
-    
+
   }
 }
 

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 void imprime(int tamanho,int *vetor);
 void preenche(int tamanho,int *vetor);
 void selectionsort(int *vetor, int tamanho);
@@ -13,7 +14,7 @@ int main(){
 	selectionsort(vetor,tamanho);
 	printf("Vetor ordenado:\n");
 	imprime(tamanho,vetor);
-	
+
 }
 void imprime(int tamanho,int *vetor){
 	int i;
@@ -33,7 +34,7 @@ void preenche(int tamanho,int *vetor){
         vetor[i]=rand() % 10000;
      }
 }
-void selectionsort(int *vetor, int tamanho){ 
+void selectionsort(int *vetor, int tamanho){
   int i, j, min, aux;
   for (i = 0; i < (tamanho-1); i++){
    complententodoselectionsort(vetor,tamanho,i);
@@ -41,7 +42,5 @@ void selectionsort(int *vetor, int tamanho){
 }
 void complententodoselectionsort(int *vetor, int tamanho,int i){
 
-	
+
 }
-
-

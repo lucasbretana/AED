@@ -45,15 +45,30 @@ void mergeSort(int *V, int inicio, int fim){
 	}
 }
 void merge (int *V, int inicio, int meio, int fim){
-	//testar se o do fim eh menor que os outros
-	int i = fim, aux;
-	while(i>inicio){
-		if(V[i] < V[i-1]){
-			aux = V[i-1];
-			V[i-1] = V[i];
-			V[i] = aux;
-			break;
+	// recebe "duas" listas pre-ordernadas
+	// V[inicio..meio] 	-> Lista 1
+	// V[meio+1..fim]		-> Lista 2
+	int aux, pDown;
+	int i, j;
+	// Se o fim da lista 1 for menor/igual que o começo da lista 2, retorna
+	if(V[meio] <= V[meio+1]) return;
+	// senao
+	// pega o indice do começo da lista 2
+	j = meio + 1;
+	// vai do inicio da lista 1, procurando alguem menor que ele
+	i = inicio;
+	for(j=meio+1 ; j>=i ; j--){
+		if(V[i] > V[j]){
+			// quando achar, salva o atual
+			aux = V[j];
+			// e comeca a descer a lista
+			pDown = j;
+			// percorre pra baixo, copiando pra cima
+			while(pDown < i){
+				V[pDown] = V[pDown-1];
+				pDown--;
+			}
+			V[pDown] = aux;
 		}
-		i--;
 	}
 }

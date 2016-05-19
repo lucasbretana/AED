@@ -1,0 +1,15 @@
+Algoritmos que usem divisão-e-conquista: merge e quickSort
+Quebra em problemas menores e portanto mais simples de ordernar.
+Depois combian os resultados parciais na resposta final
+PS: a divisão geralmente é feito de modo recursivo como no merge.
+
+Dois algoritmos, um melhor e um pior, quando tu usar o pior.
+Merge e bubble.
+Merge é O(n lon n) e Bubble(n)
+Usaria o Bubble quando os dados são conhecidos e quase ordernados, além de quando a memória for limitado uma vez que (dependendo da implementação) usa várias listas auxiliares e a recursão usam de muita memória enquanto o buble faz uso de memoria constante.
+
+SelectionSort acha o maior, troca com o ultimo e so on.
+
+7 e 9 porque os da esquerda tem que ser menor e os da direira maior.
+
+Bubble, colocar uma variavel de flag que recebe 1 se trocar, 0 no inicio do for interno e no fim do for externo (mas ainda dentro) se ela for 0, para.
