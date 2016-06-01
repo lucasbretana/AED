@@ -28,12 +28,12 @@ int main(int argc, char *argv[]){
 
 void InsertionSort(int *vet, int ini, int fim){
   int j, i, aux;
-  for(i = ini+1 ; i<fim ; i++){
+  for(i = ini ; i<fim-1 ; i++){
     j = i;
-    aux = vet[j];
-    while((vet[j] < vet[j-1]) && (j > ini)){  
-      vet[j] = vet[j-1]; 
-      vet[j-1] = aux;
+    aux = vet[j+1];
+    while((vet[j+1] < vet[j])){               // && (j > ini)){  
+      vet[j+1] = vet[j]; 
+      vet[j] = aux;
       j--;
     }
     PrintVet(vet, ini, fim);
