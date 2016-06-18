@@ -18,6 +18,32 @@ typedef struct _Pilha{
   int limite;
 }Pilha;
 
+void Reset(Pilha *pilha);
+bool Empty(Pilha *pilha);
+bool Full(Pilha *pilha);
+bool PUSH(Pilha *pilha, Aluno *item);
+void POP(Pilha *pilha, Aluno *aluno);
+void Listar(Pilha *pilha);
+
+int main(int argc, char *argv[]){
+  Pilha myP;
+  Reset(&myP);
+
+  Aluno lucas;
+  lucas.ra = 22;
+  strcpy(lucas.nome, "Lucas");
+
+  Aluno alana;
+  alana.ra = 21;
+  strcpy(alana.nome, "Alana");
+
+  PUSH(&myP, &lucas);
+  PUSH(&myP, &alana);
+
+  Listar(&myP);
+  printf("%d", Empty(&myP));
+}
+
 void Reset(Pilha *pilha){
   pilha->topo = 0;
   pilha->base = 0;
@@ -64,23 +90,4 @@ void Listar(Pilha *pilha){
     POP(&p, &a);
     PUSH(pilha, &a);
   }
-}
-
-int main(int argc, char *argv[]){
-  Pilha myP;
-  Reset(&myP);
-
-  Aluno lucas;
-  lucas.ra = 22;
-  strcpy(lucas.nome, "Lucas");
-
-  Aluno alana;
-  alana.ra = 21;
-  strcpy(alana.nome, "Alana");
-
-  PUSH(&myP, &lucas);
-  PUSH(&myP, &alana);
-
-  Listar(&myP);
-  printf("%d", Empty(&myP));
 }
